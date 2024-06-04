@@ -8,14 +8,14 @@ const app = new Hono()
 
 app.use(cors())
 
-app.get('/', async (c) => {
+app.get('/*', async (c) => {
   const url = c.req.query("url");
   if (!url) return c.text('get ?url=.. or post /', 403);
   let tsSource = await fetch(url).then(r => r.text());
   return c.json(getEntityJson(tsSource))
 })
 
-app.post('/', async (c) => {
+app.post('/*', async (c) => {
   const body = await c.req.text();
   if (!body) {
     return c.text('post / with body', 403);
