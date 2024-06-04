@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "build": "node api/index.js",
+    "build-test": "node api/index.js",
     "tsc": "tsc",
     "start": "node api/index.js",
     "dev": "tsx watch src/index.ts"
